@@ -43,4 +43,27 @@ Los usuarios de Windows pueden usar PuTTY el cual es un cliente de SSH. A contin
     \caption{Pantalla principal de PuTTY}
     \label{putty1}
 \end{figure}
+\section{Subir y descargar archivos del servidor}
+En esta secci\'on se describir\'an algunos m\'etodos que permiten la subida de archivos desde
+la m\'aquina local al servidor remoto y la descarga de archivos desde este.
+\subsection{SFTP (SSH File Transfer Protocol)}
+Es un protocolo de red que permite la transferencia de archivos entre dos m\'aquinas. A continuaci\'on, se describir\'a el uso de este protocolo mediante la l\'inea de comandos y desde FileZilla.
+\subsubsection{Desde la l\'inea de comandos}
+Para conectar v\'ia SFTP a un servidor remoto, escribir el siguiente comando:
+\begin{verbatim}
+      my_username@host:$ sftp username@host_ip_address
+\end{verbatim}
+Nos pedir\'a ingresar la contrase\~na del usuario con el cual queremos acceder y
+una vez ingresada y validada estaremos en el prompt de SFTP.
+Para subir un archivo escribimos:
+\begin{verbatim}
+      sftp> put local_file
+\end{verbatim}
+Una vez ejecutado devolver\'a la ruta del servidor donde fue guardado el archivo.\\
+Para subir una carpeta tambien ejecutamos put pero debemos primero crear la carpeta en el servidor ejecutando el comando mkdir, despu\'es, ejecutamos put con el parametro -r el cual se encarga de que los subdirectorios y sus archivos tambien sean subidos como se muestra a continuaci\'on:
+\begin{verbatim}
+      sftp> mkdir local_folder
+      sftp> put -r local_folder
+\end{verbatim}
+Es importante aclarar que el nombre de la carpeta creada en el servidor y el nombre de la carpeta a subir deben coincidir.
 \end{document}
