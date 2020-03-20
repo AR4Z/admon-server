@@ -65,5 +65,24 @@ Para subir una carpeta tambien ejecutamos put pero debemos primero crear la carp
       sftp> mkdir local_folder
       sftp> put -r local_folder
 \end{verbatim}
-Es importante aclarar que el nombre de la carpeta creada en el servidor y el nombre de la carpeta a subir deben coincidir.
+Es importante aclarar que el nombre de la carpeta creada 
+en el servidor y el nombre de la carpeta a subir deben coincidir.\\
+Para descargar archivos desde el servidor debemos conectarnos v\'ia 
+SFTP como se muestra en y ejecutar:
+\begin{verbatim}
+      sftp> get remote_file
+\end{verbatim}
+Esto descargara el archivo llamado remote\_file y asi mismo sera guardado en local.
+Si queremos guardar el archivo descargado con otro nombre, podemos agregar un segundo parametro como se muestra a continuacion:
+\begin{verbatim}
+      sftp> get remote_file local_file
+\end{verbatim}
+Si lo que queremos descargar es un directorio, podemos agregar el par\'ametro -r antes de el nombre de este:
+\begin{verbatim}
+      sftp> get -r remote_directory
+\end{verbatim}
+Otro par\'ametro \'util al descargar archivos es -P, us\'andolo, podemos descargar el archivo o el directorio con los mismos permisos que se ten\'ia en el servidor:
+\begin{verbatim}
+      sftp> get -P remote_file
+\end{verbatim}
 \end{document}
